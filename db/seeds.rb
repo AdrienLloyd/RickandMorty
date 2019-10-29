@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Character.destroy_all
 Episode.destroy_all
 Characterepisode.destroy_all
@@ -10,3 +12,5 @@ FavouriteFood.destroy_all
 
 # or create episodes on the fly through charachters episodes list
 # if(created) ? skip it : create
+
+# testing git setup
