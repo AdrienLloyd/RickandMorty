@@ -69,13 +69,16 @@ characters.each do |characterpages|
     )
 
     episodes_info.each do |episode|
-      episode = JSON.parse(open(episode).read)
-      episode_info = episode['results']
+      episode_info = JSON.parse(open(episode).read)
 
-      new_character.characterepisodes.find_or_create_by(
+      new_episode = Episode.find_or_create_by(
         name: episode_info['name'],
         air_date: episode_info['air_date'],
         episode_name: episode_info['episode']
+      )
+      CharacterEpisode.create(
+        character: new_character,
+        episode: new_episode
       )
     end
 
