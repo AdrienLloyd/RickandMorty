@@ -25,23 +25,31 @@ ActiveRecord::Schema.define(version: 2019_10_11_054751) do
     t.string "species"
     t.string "origin"
     t.string "image"
+    t.integer "episode_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["episode_id"], name: "index_characters_on_episode_id"
   end
 
   create_table "episodes", force: :cascade do |t|
     t.string "name"
     t.string "air_date"
     t.string "episode_name"
+    t.integer "character_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_episodes_on_character_id"
   end
 
   create_table "favourite_foods", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.integer "character_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_favourite_foods_on_character_id"
   end
 
+  add_foreign_key "characters", "episodes"
+  add_foreign_key "episodes", "characters"
 end
