@@ -1,5 +1,5 @@
 class FavouriteFood < ApplicationRecord
-  has_many :characters
+  belongs_to :character
 
   validates :name, :description, presence: true
 end

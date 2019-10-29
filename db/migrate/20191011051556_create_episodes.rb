@@ -4,6 +4,7 @@ class CreateEpisodes < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :air_date
       t.string :episode_name
+      t.references :character, null: false, foreign_key: true
 
       t.timestamps
     end

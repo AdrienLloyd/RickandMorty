@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
+Characterepisode.destroy_all
 Character.destroy_all
 Episode.destroy_all
-Characterepisode.destroy_all
 FavouriteFood.destroy_all
 
 # create charachter
@@ -30,7 +30,7 @@ characters['results'].each do |character|
     origin: character['origin']['name'],
     image: character['image']
   )
-  new_character.favouriteFood.create(
+  new_character.create_favourite_food(
     name: "#{Faker::Science.element} #{Faker::Food.dish}",
     description: Faker::Food.description
   )

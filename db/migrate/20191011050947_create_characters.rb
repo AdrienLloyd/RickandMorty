@@ -6,6 +6,7 @@ class CreateCharacters < ActiveRecord::Migration[6.0]
       t.string :species
       t.string :origin
       t.string :image
+      t.references :episode, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -3,6 +3,7 @@ class CreateFavouriteFoods < ActiveRecord::Migration[6.0]
     create_table :favourite_foods do |t|
       t.string :name
       t.string :description
+      t.references :character, null: false, foreigh_key: true
 
       t.timestamps
     end
