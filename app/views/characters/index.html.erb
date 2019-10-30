@@ -1,0 +1,15 @@
+<h1>Characters</h1>
+<ul>
+    <li><%= link_to "Home", home_path %></li>
+    <li><%= link_to "Characters", characters_path %></li>
+    <li><%= link_to "Episodes", episodes_path %></li>
+    <li><%= link_to "About", about_path %></li>
+</ul>
+<% @characters.each do |character| %>
+  <h2><%= link_to character.name, character %></h2>
+  <%= image_tag character.image %>
+  <h2>status: <%= character.status %></h2>
+  <h2>species: <%= character.species %></h2>
+  <h2>origin: <%= character.origin %></h2>
+
+<% end %>
