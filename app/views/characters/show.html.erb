@@ -7,10 +7,16 @@
 </ul>
 <h2><%= @character.name %></h2>
 <%= image_tag @character.image %>
-<h2>status: <%= @character.status %></h2>
-<h2>species: <%= @character.species %></h2>
-<h2>origin: <%= @character.origin %></h2>
+<h3>status: <%= @character.status %></h3>
+<h3>species: <%= @character.species %></h3>
+<h3>origin: <%= @character.origin %></h3>
 
-<p>say favourite food</p>
+<h2>Favourite Food: </h2>
+<h3>Name: <%= @character.favourite_food.name %></h3>
+<h3>Description: <%= @character.favourite_food.description %></h3>
 
-<p>make a list of all episodes character is in</p>
+<h2>Episodes <%= @character.name %> appears in:</h2>
+
+<% @character.episodes.each do |episode| %>
+  <h3><%= link_to episode.name, episode %></h3>
+<% end %>

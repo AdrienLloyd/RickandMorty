@@ -6,6 +6,11 @@
     <li><%= link_to "About", about_path %></li>
 </ul>
 <h2><%= @episode.name %></h2>
-  <h2>Air Date: <%= @episode.air_date %></h2>
-  <h2>Episode: <%= @episode.episode_name %></h2>
-<p>make a list of all characters in episode</p>
+<h3>Air Date: <%= @episode.air_date %></h3>
+<h3>Episode: <%= @episode.episode_name %></h3>
+
+<h2>Characters that appear in the episode <%= @episode.name %></h2>
+
+<% @episode.characters.each do |character| %>
+  <h3><%= link_to character.name, character %></h3>
+<% end %>
