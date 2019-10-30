@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class EpisodesController < ApplicationController
+  include Pagy::Backend
+
   def index
-    @episodes = Episode.order(:id)
+    @pagy, @episodes = pagy(Episode.order(:id))
   end
 
   def show;

@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class CharactersController < ApplicationController
+  include Pagy::Backend
+
   def index
-    @characters = Character.order(:id)
+    @pagy, @characters = pagy(Character.order(:id))
   end
 
   def show

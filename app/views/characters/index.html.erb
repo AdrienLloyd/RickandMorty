@@ -5,11 +5,13 @@
     <li><%= link_to "Episodes", episodes_path %></li>
     <li><%= link_to "About", about_path %></li>
 </ul>
+
 <% @characters.each do |character| %>
   <h2><%= link_to character.name, character %></h2>
   <%= image_tag character.image %>
   <h3>status: <%= character.status %></h3>
   <h3>species: <%= character.species %></h3>
   <h3>origin: <%= character.origin %></h3>
-
 <% end %>
+
+<%== pagy_nav(@pagy)%>
