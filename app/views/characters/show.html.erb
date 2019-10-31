@@ -24,7 +24,7 @@
 </nav>
 
 <h2><%= @character.name %></h2>
-<%= image_tag @character.image %>
+<%= image_tag @character.image, alt: "Image not found"%>
 <h3>status: <%= @character.status %></h3>
 <h3>species: <%= @character.species %></h3>
 <h3>origin: <%= @character.origin %></h3>
