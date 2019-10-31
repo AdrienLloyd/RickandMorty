@@ -23,12 +23,18 @@
   <% end %>
 </nav>
 
-<% @characters.each do |character| %>
-  <h2><%= link_to character.name, character %></h2>
-  <%= image_tag character.image %>
-  <h3>status: <%= character.status %></h3>
-  <h3>species: <%= character.species %></h3>
-  <h3>origin: <%= character.origin %></h3>
-<% end %>
+<div class="container" style="margin:auto;">
+  <% @characters.each do |character|%>
+  <div class="card bg-dark text-white" style="margin-bottom:10px;margin-left:10px;width:500px;float:left;">
+    <div class="card-body">
+      <h4 class="card-title"><%=link_to character.name%></h4>
+      <img class="card-img-top" src="<%= character.image %>" alt="Image is missing">
+      <p class="card-text">status: <%= character.status %></p>
+      <p class="card-text">species: <%= character.species %></p>
+      <p class="card-text">origin: <%= character.origin %></p>
+    </div>
+  </div>
+  <% end %>
 
-<%== pagy_nav(@pagy)%>
+<%==pagy_nav(@pagy)%>
+</div>
