@@ -10,4 +10,9 @@ class CharactersController < ApplicationController
   def show
     @character = Character.find(params[:id])
   end
+
+  def search_results
+    @query = params[:query]
+    @pagy, @characters = pagy(Character.where('name LIKE ?', "%#{@query}%"))
+  end
 end

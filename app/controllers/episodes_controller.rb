@@ -7,7 +7,7 @@ class EpisodesController < ApplicationController
     @pagy, @episodes = pagy(Episode.order(:id))
   end
 
-  def show;
+  def show
     @episode = Episode.find(params[:id])
   end
 end
