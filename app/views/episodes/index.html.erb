@@ -34,11 +34,5 @@
   </div>
   <% end %>
 
-<% @episodes.each do |episode| %>
-  <h2><%= link_to episode.name, episode %></h2>
-  <h3>Air Date: <%= episode.air_date %></h3>
-  <h3>Episode: <%= episode.episode_name %></h3>
-<% end %>
-
 <%==pagy_nav(@pagy)%>
 </div>
