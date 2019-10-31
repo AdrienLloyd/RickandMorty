@@ -23,10 +23,22 @@
   <% end %>
 </nav>
 
+<div class="container" style="margin:auto;">
+  <% @episodes.each do |episode|%>
+  <div class="card bg-dark text-white" style="margin-bottom:10px;margin-left:10px;width:500px;float:left;">
+    <div class="card-body">
+      <h4 class="card-title"><%=link_to episode.name, episode%></h4>
+      <p class="card-text">Air Date: <%= episode.air_date %></p>
+      <p class="card-text">Episode: <%= episode.episode_name %></p>
+    </div>
+  </div>
+  <% end %>
+
 <% @episodes.each do |episode| %>
   <h2><%= link_to episode.name, episode %></h2>
   <h3>Air Date: <%= episode.air_date %></h3>
   <h3>Episode: <%= episode.episode_name %></h3>
 <% end %>
 
-<%== pagy_nav(@pagy)%>
+<%==pagy_nav(@pagy)%>
+</div>
